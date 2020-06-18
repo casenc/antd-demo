@@ -30,7 +30,7 @@ class Admin extends Component {
         return ( 
             <Layout style={{height:'100%'}}>
                 <Sider>
-                    <LeftNav location={ this.props.location }/>
+                    <LeftNav />
                 </Sider>
                 <Layout>
                     <Header />

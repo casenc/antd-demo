@@ -14,15 +14,17 @@ export function reqLogin(values) { // values = {username, password}
 // jsonp请求的接口请求函数
 
 export function reqWeather(city) {
-    const url = `http://api.map.baidu.com/telematics/v3/weather?location=${city}&output=json&ak=3p49MVra6urFRGOT9s8UBWr2`
-    jsonp(url, {}, (err, data) => {
-        console.log('jsonp()', err, data);
-        if (!err && data.status === 'success') {
-            const {dayPictureUrl, weather} = data.results[0].weather_data[0]
-        } else {
-            message.error("获取数据失败")
-        }
+    return new Promise((resolve, reject) => {
+        const url = `http://api.map.baidu.com/telematics/v3/weather?location=${city}&output=json&ak=3p49MVra6urFRGOT9s8UBWr2`
+        jsonp(url, {}, (err, data) => {
+            console.log('jsonp()', err, data);
+            if (!err && data.status === 'success') {
+                const {dayPictureUrl, weather} = data.results[0].weather_data[0]
+                resolve({dayPictureUrl, weather})
+            } else {
+                message.error("获取数据失败")
+            }
+        })
     })
+    
 }
-
-reqWeather('北京')

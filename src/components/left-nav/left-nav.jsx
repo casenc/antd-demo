@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { Menu } from 'antd'
 
 import './left-nav.less'
@@ -55,4 +55,4 @@ class LeftNav extends Component {
     }
 }
  
-export default LeftNav;
+export default withRouter(LeftNav);
