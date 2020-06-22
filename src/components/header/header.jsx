@@ -8,6 +8,7 @@ import { formateDate } from '../../utils/dateUtils'
 import { reqWeather } from '../../api'
 import memoryUtils from '../../utils/memoryUtils'
 import menuList from '../../config/menuConfig'
+import LinkButton from '../link-button/link-button'
 
 
 class Header extends Component {
@@ -42,7 +43,7 @@ class Header extends Component {
         let title
         menuList.forEach(item => {
             if (item.key === path) {
-                title = item.key
+                title = item.title
             } else if (item.children) {
                 const cItem = item.children.find(cItem => cItem.key===path)
                 if(cItem) {
@@ -72,7 +73,7 @@ class Header extends Component {
             <div className='header'>
                 <div className="header-top">
                     <span>欢迎，{ memoryUtils.user.username }</span>
-                    <a href="jacascript:" onClick={this.logoutHandle}>退出</a>
+                    <LinkButton onClick={this.logoutHandle}>退出</LinkButton>
                 </div>
                 <div className="header-bottom">
                     <div className="header-bottom-left">
