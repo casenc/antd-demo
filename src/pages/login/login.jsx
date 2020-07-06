@@ -41,7 +41,6 @@ class Login extends Component {
     }
 
     handleFinish = (values) => {
-        console.log('success', values)
         reqLogin(values).then(response => {
             const result = response.data
             if (result.status === 0) {
@@ -52,7 +51,7 @@ class Login extends Component {
                 message.error(result.msg)
             }
         }).catch(error => {
-            alert(Error)
+            alert(error)
         })
     }
 

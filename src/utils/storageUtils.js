@@ -4,6 +4,7 @@
 import store from 'store'
 
 const USER_KEY = 'user_key'
+const BOND_FUNDAMENTALS_KEY = 'bond_fundamentals_key'
 
  export default {
      // 保存user
